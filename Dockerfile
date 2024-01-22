@@ -15,4 +15,4 @@ RUN pip install mlflow
 
 EXPOSE 5000
 
-CMD ["mlflow", "server", "--app-name", "basic-auth",]
+CMD ["mlflow", "server", "-h", "0.0.0.0", "-p", "5000", "--app-name", "basic-auth"]
