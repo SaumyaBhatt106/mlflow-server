@@ -26,4 +26,4 @@ jobs:
       run: docker build . --file Dockerfile --tag saumyabhatt106/mlflow-server:$(date +%s)
 
     - name: Push image to Docker
-      run: docker push ${{secrets.DOCKER_USER}}/saumyabhatt106/mlflow-server
+      run: docker push saumyabhatt106/mlflow-server
