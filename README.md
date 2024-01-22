@@ -1,5 +1,7 @@
 # mlflow-server
 
+All changes pushed to the `main` branch will execute a github-job to build and push a new image to [DockerHub Repo](https://hub.docker.com/repository/docker/saumyabhatt106/mlflow-server/general)
+
 ## Setup and Running locally
 
 Run the below given command to run ml-flow server locally. Plan is to shift this to an EC2 instance eventually.
