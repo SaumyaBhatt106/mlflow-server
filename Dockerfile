@@ -1,16 +1,18 @@
-# Use the official Ubuntu image
 FROM ubuntu:latest
 
-# Set the working directory
 WORKDIR /app
 
-# Update the package lists and install necessary packages
-RUN apt-get update \
+  RUN chmod -R 777 . \
+    && apt-get update \
     && apt-get install -y python3 python3-pip \
-    && pip3 install mlflow
+    && apt-get install -y python3.10-venv \
+    && pip3 install virtualenv
 
-# Expose the container port
+RUN python3 -m venv venv
+ENV PATH="/app/venv/bin:$PATH"
+
+RUN pip install mlflow
+
 EXPOSE 5000
 
-# Run MLflow UI when the container starts
-CMD ["mlflow", "ui", "-h", "0.0.0.0", "-p", "5000"]
+CMD ["mlflow", "server", "--app-name", "basic-auth",]
