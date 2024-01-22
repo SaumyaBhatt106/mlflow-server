@@ -23,7 +23,7 @@ jobs:
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
         
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag saumyabhatt106/mlflow-server:$(date +%s)
+      run: docker build . --file Dockerfile --tag saumyabhatt106/mlflow-server
 
     - name: Push image to Docker
       run: docker push saumyabhatt106/mlflow-server
