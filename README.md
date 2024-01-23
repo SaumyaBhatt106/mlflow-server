@@ -6,6 +6,7 @@ All changes pushed to the `main` branch will execute a github-job to build and p
 
 1. User related data (permissions and authorizations) will no persists if the server goes down. This is a [known issue](https://github.com/mlflow/mlflow/issues/9155)
 2. Make sure to connect to a postgres server and provide the related data in the [.env](./.env) file. This is where all the logging and the experiment data will persists.
+3. Make sure to change and upload the `.env` file to a more secure location once moving to production.
 
 ## Setup and Running locally
 
