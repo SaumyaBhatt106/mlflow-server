@@ -2,6 +2,11 @@
 
 All changes pushed to the `main` branch will execute a github-job to build and push a new image to [DockerHub Repo](https://hub.docker.com/repository/docker/saumyabhatt106/mlflow-server/general)
 
+**NOTE**
+
+1. User related data (permissions and authorizations) will no persists if the server goes down. This is a [known issue](https://github.com/mlflow/mlflow/issues/9155)
+2. Make sure to connect to a postgres server and provide the related data in the [.env](./.env) file. This is where all the logging and the experiment data will persists.
+
 ## Setup and Running locally
 
 Run the below given command to run ml-flow server locally. Plan is to shift this to an EC2 instance eventually.
