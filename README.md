@@ -22,6 +22,12 @@ DB_DATABASE=mlflowdb
 DB_HOST=host.docker.internal
 DB_PORT=5431
 
+AWS_S3_URI=http://localhost:9000
+AWS_S3_BUCKET_NAME=bucket
+
+AWS_ACCESS_KEY_ID=minio_user
+AWS_SECRET_ACCESS_KEY=minio_password
+
 ```
 
 2. Run the below given command to run ml-flow server locally.
