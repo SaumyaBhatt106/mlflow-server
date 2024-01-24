@@ -10,8 +10,16 @@ echo "Connecting to datastore : $DATASTORE_URI"
 # sed -i "s|database_uri =.*|database_uri = $DATASTORE_URI|g" "$DEFAULT_AUTH_FILE"
 # export MLFLOW_AUTH_CONFIG_PATH=./$DEFAULT_AUTH_FILE
 
+export MLFLOW_S3_ENDPOINT=$AWS_S3_URI
+export AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID
+export AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY
+
+echo "Artifact storage at :$AWS_S3_URI/$AWS_S3_BUCKET_NAME"
+
 mlflow server \
---backend-store-uri "$DATASTORE_URI" \
---app-name basic-auth \
---host 0.0.0.0 \
---port 5000
+    --backend-store-uri "$DATASTORE_URI" \
+    --artifacts-destination s3://$AWS_S3_BUCKET_NAME \
+    --app-name basic-auth \
+    --serve-artifacts \
+    --host 0.0.0.0 \
+    --port 5000 \
