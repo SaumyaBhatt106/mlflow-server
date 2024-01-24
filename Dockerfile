@@ -15,7 +15,6 @@ ENV PATH="/app/venv/bin:$PATH"
 RUN pip install mlflow psycopg2 boto3
 
 COPY entrypoint.sh /app/entrypoint.sh
-COPY .env /app/.env
 COPY default_auth.ini /app/default_auth.ini
 RUN chmod +x /app/entrypoint.sh
 

@@ -6,14 +6,28 @@ All changes pushed to the `main` branch will execute a github-job to build and p
 
 1. User related data (permissions and authorizations) will no persists if the server goes down. This is a [known issue](https://github.com/mlflow/mlflow/issues/9155)
 2. Make sure to connect to a postgres server and provide the related data in the [.env](./.env) file. This is where all the logging and the experiment data will persists.
-3. Make sure to change and upload the `.env` file to a more secure location once moving to production.
+3. Only the user who has created an experiment can add runs related to it. Currently, there is no provision to allow access for multiple users working on the same experiment.
 
 ## Setup and Running locally
 
-Run the below given command to run ml-flow server locally. Plan is to shift this to an EC2 instance eventually.
+1. Provide the required configs in the `.env` file.
+
+```txt
+# Sample .env file contents
+
+#[db.config.properties]
+DB_USERNAME=***
+DB_PASSWORD=***
+DB_DATABASE=mlflowdb
+DB_HOST=host.docker.internal
+DB_PORT=5431
+
+```
+
+2. Run the below given command to run ml-flow server locally.
 
 ```bash
-docker run -d -p 5001:5000 --name mlflow-server saumyabhatt106/mlflow-server
+docker run -d -p 5001:5000 --name mlflow-server --env-file .env saumyabhatt106/mlflow-server
 ```
 
 The ML-Flow UI would be available at `http://localhost:5001`
