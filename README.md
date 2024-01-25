@@ -38,6 +38,14 @@ docker run -d -p 5001:5000 --name mlflow-server --env-file .env saumyabhatt106/m
 
 The ML-Flow UI would be available at `http://localhost:5001`
 
+### Note
+
+One can locally setup the postgres and the S3 storage (using MinIO) using docker. Run the below commands to set it up:
+
+```bash
+docker compose -f ./create.compose.yml up -d
+```
+
 ## Authorisation and Authentication
 
 1. When accessing the server, one would first encounter a log-in prompt.
