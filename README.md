@@ -22,7 +22,7 @@ DB_DATABASE=mlflowdb
 DB_HOST=host.docker.internal
 DB_PORT=5431
 
-AWS_S3_URI=http://localhost:9000
+AWS_S3_URI=http://192.168.4.211:9000
 AWS_S3_BUCKET_NAME=bucket
 
 AWS_ACCESS_KEY_ID=minio_user
