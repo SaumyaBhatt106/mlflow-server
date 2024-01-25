@@ -4,33 +4,35 @@ All changes pushed to the `main` branch will execute a github-job to build and p
 
 **NOTE**
 
-1. User related data (permissions and authorizations) will no persists if the server goes down. This is a [known issue](https://github.com/mlflow/mlflow/issues/9155)
-2. Make sure to connect to a postgres server and provide the related data in the [.env](./.env) file. This is where all the logging and the experiment data will persists.
-3. Only the user who has created an experiment can add runs related to it. Currently, there is no provision to allow access for multiple users working on the same experiment.
-
-## Setup and Running locally
-
-1. Provide the required configs in the `.env` file.
+Provide the necessary data in the `.env` file before running the server. A sample ``.env file's content is as follows:
 
 ```txt
 # Sample .env file contents
 
-#[db.config.properties]
-DB_USERNAME=***
-DB_PASSWORD=***
+# This is where the logs and runs will be stored
+DB_USERNAME=user
+DB_PASSWORD=password
 DB_DATABASE=mlflowdb
 DB_HOST=host.docker.internal
 DB_PORT=5431
 
+# This is where the user related data and permissions are stored
+AUTH_DB_USER=user
+AUTH_DB_PASSWORD=password
+AUTH_DB_DATABASE=mlflowuser
+AUTH_DB_HOST=host.docker.internal
+AUTH_DB_PORT=5431
+
+# This is where artifacts are stored
 AWS_S3_URI=http://192.168.4.211:9000
 AWS_S3_BUCKET_NAME=bucket
-
 AWS_ACCESS_KEY_ID=minio_user
 AWS_SECRET_ACCESS_KEY=minio_password
-
 ```
 
-2. Run the below given command to run ml-flow server locally.
+## Setup and Running locally
+
+1. Run the below given command to run ml-flow server locally.
 
 ```bash
 docker run -d -p 5001:5000 --name mlflow-server --env-file .env saumyabhatt106/mlflow-server
