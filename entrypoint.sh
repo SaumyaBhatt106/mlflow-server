@@ -4,7 +4,7 @@ set -e
 DATASTORE_URI="postgresql://$DB_USER:$DB_PASSWORD@$DB_HOST:$DB_PORT/$DB_DATABASE"
 AUTH_DATASTORE_URI="postgresql://$AUTH_DB_USER:$AUTH_DB_PASSWORD@$AUTH_DB_HOST:$AUTH_DB_PORT/$AUTH_DB_DATABASE"
 
-# Updating ib-built migration file to point to our store
+# Updating in-built migration file to point to our store
 BASIC_AUTH_FILE="./venv/lib/python3.10/site-packages/mlflow/server/auth/basic_auth.ini"
 sed -i "s|database_uri =.*|database_uri = $AUTH_DATASTORE_URI|g" "$BASIC_AUTH_FILE"
 

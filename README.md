@@ -4,7 +4,8 @@ All changes pushed to the `main` branch will execute a github-job to build and p
 
 **NOTE**
 
-Provide the necessary data in the `.env` file before running the server. A sample ``.env file's content is as follows:
+1. Provide the necessary data in the `.env` file before running the server. A sample ``.env file's content is as follows:
+2. It is necessary to store the logs and user details in different databases for the MLFlow-Server to run correctly. This is a known [issue](https://github.com/mlflow/mlflow/issues/10052)
 
 ```txt
 # Sample .env file contents
