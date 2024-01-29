@@ -11,7 +11,7 @@ All changes pushed to the `main` branch will execute a github-job to build and p
 # Sample .env file contents
 
 # This is where the logs and runs will be stored
-DB_USERNAME=user
+DB_USER=user
 DB_PASSWORD=password
 DB_DATABASE=mlflowdb
 DB_HOST=host.docker.internal
